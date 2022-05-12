@@ -34,11 +34,14 @@ export default {
       name: "",
       description: "",
       deadline: ""
-    }
+    },
+    name: "todos"
   }),
   methods: {
     create() {
+      // this.name = sessionStorage.getItem("name")
       this.todos.push(this.todo)
+      sessionStorage.setItem(this.name, JSON.stringify(this.todos))
       this.todo = {
         name: "",
         description: "",
