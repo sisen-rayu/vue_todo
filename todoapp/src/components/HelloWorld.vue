@@ -9,6 +9,8 @@
     <input v-model="todo.description">
     <p>Deadline:</p>
     <input v-model="todo.deadline">
+    <br>
+    <button style="submit" @click="create">Create</button>
     <hr>
 
     <div v-for="todo in todos" :key="todo.name">
@@ -33,7 +35,17 @@ export default {
       description: "",
       deadline: ""
     }
-  })
+  }),
+  methods: {
+    create() {
+      this.todos.push(this.todo)
+      this.todo = {
+        name: "",
+        description: "",
+        deadline: ""
+      }
+    }
+  }
 }
 </script>
 
